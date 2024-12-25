@@ -1,11 +1,11 @@
 {
-  "name": "my-module",
+  "name": "nuxt-locker",
   "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
-  "description": "My new Nuxt module",
+  "description": "A Nuxt module for protecting pages with a very simple authentication.",
   "license": "MIT",
-  "repository": "your-org/my-module",
+  "repository": "kalix127/nuxt-locker",
   "exports": {
     ".": {
       "types": "./dist/types.d.ts",
