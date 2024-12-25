@@ -1,10 +1,11 @@
 {
   "name": "my-module",
-  "version": "1.0.0",
-  "description": "My new Nuxt module",
-  "repository": "your-org/my-module",
-  "license": "MIT",
   "type": "module",
+  "version": "1.0.0",
+  "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
+  "description": "My new Nuxt module",
+  "license": "MIT",
+  "repository": "your-org/my-module",
   "exports": {
     ".": {
       "types": "./dist/types.d.ts",
@@ -46,6 +47,5 @@
     "typescript": "~5.7.2",
     "vitest": "^2.1.8",
     "vue-tsc": "^2.2.0"
-  },
-  "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf"
+  }
 }
