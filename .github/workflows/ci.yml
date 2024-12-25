@@ -1,9 +1,10 @@
-name: ci
+name: Linting and Tests
 
 on:
   push:
     branches:
       - main
+
   pull_request:
     branches:
       - main
@@ -15,31 +16,36 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: corepack enable
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install dependencies
-        run: npx nypm@latest i
+        run: pnpm install
 
-      - name: Lint
-        run: npm run lint
+      - name: Playground prepare
+        run: pnpm dev:prepare
 
-  test:
+      - name: Linting
+        run: pnpm lint
+
+  test-types:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
       - run: corepack enable
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install dependencies
-        run: npx nypm@latest i
+        run: pnpm install
 
       - name: Playground prepare
-        run: npm run dev:prepare
+        run: pnpm dev:prepare
 
-      - name: Test
-        run: npm run test
+      - name: Type check
+        run: pnpm test:types
