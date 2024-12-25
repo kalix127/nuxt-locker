@@ -1,0 +1,23 @@
+name: "🚀 Feature request"
+description: Suggest an idea or enhancement for the module
+labels: ["feature"]
+assignees: kalix127
+body:
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature Description
+      description: Please provide a clear and detailed description of the feature you'd like to see added, including the problem it solves, use cases, alternatives considered, and any similar implementations.
+      placeholder: Describe your feature request in detail...
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: additional-info
+    attributes:
+      label: Additional Information
+      description: Please help us understand your involvement and implementation preferences.
+      options:
+        - label: I am willing to contribute to implementing this feature
+        - label: I believe this could be implemented as a separate module
+        - label: I have checked that this feature request is not a duplicate
