@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, useRuntimeConfig } from "#imports";
+import { navigateTo, ref, useRoute, useRuntimeConfig } from "#imports";
 
 useHead({
   title: "Protected Page",
@@ -12,9 +12,38 @@ const password = ref("");
 const error = ref("");
 const isLoading = ref(false);
 const canSubmit = ref(true);
-const { contactEmail } = useRuntimeConfig().public.nuxtLocker;
+const redirect = useRoute().query.redirect as string;
+const { customConfig, contactEmail } = useRuntimeConfig().public.nuxtLocker;
 
-async function submit() {}
+async function submit() {
+  isLoading.value = true;
+  canSubmit.value = false;
+
+  if (!password.value) {
+    error.value = "Password is required";
+    isLoading.value = false;
+    return;
+  }
+
+  const response: { ok: boolean; message: string } = await $fetch(customConfig.verifyEndpoint, {
+    method: "POST",
+    body: { password: password.value },
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  isLoading.value = false;
+
+  if (!response.ok) {
+    error.value = response.message;
+    setTimeout(() => {
+      canSubmit.value = true;
+    }, 1000);
+    return;
+  }
+  return navigateTo(redirect || "/");
+}
 </script>
 
 <template>
