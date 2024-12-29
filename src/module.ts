@@ -1,5 +1,5 @@
 import type { NuxtLockerOptions } from "./types";
-import { defineNuxtModule } from "@nuxt/kit";
+import { createResolver, defineNuxtModule, extendPages } from "@nuxt/kit";
 
 export default defineNuxtModule<NuxtLockerOptions>({
   meta: {
@@ -42,6 +42,26 @@ export default defineNuxtModule<NuxtLockerOptions>({
         "[nuxt-locker] No JWT secret set - please set NUXT_LOCKER_JWT_SECRET env variable or 'jwtSecret' option",
       );
       return;
+    }
+
+    const resolver = createResolver(import.meta.url);
+
+    extendPages((pages) => {
+      pages.push({
+        name: "NuxtLocker",
+        path: options.customConfig.loginRoute,
+        file: resolver.resolve("./runtime/pages/NuxtLocker.vue"),
+      });
+    });
+
+    // Add CSS files
+    switch (options.theme) {
+      case "dark":
+        nuxt.options.css.push(resolver.resolve("./runtime/assets/dark.css"));
+        break;
+      default:
+        nuxt.options.css.push(resolver.resolve("./runtime/assets/light.css"));
+        break;
     }
 
     // Set runtime config
