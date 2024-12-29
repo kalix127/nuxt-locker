@@ -9,7 +9,7 @@ useHead({
 });
 
 const password = ref("");
-const error = ref("");
+const errorMessage = ref("");
 const isLoading = ref(false);
 const canSubmit = ref(true);
 const redirect = useRoute().query.redirect as string;
@@ -20,7 +20,7 @@ async function submit() {
   canSubmit.value = false;
 
   if (!password.value) {
-    error.value = "Password is required";
+    errorMessage.value = "Password is required";
     isLoading.value = false;
     return;
   }
@@ -36,7 +36,7 @@ async function submit() {
   isLoading.value = false;
 
   if (!response.ok) {
-    error.value = response.message;
+    errorMessage.value = response.message;
     setTimeout(() => {
       canSubmit.value = true;
     }, 1000);
@@ -79,8 +79,8 @@ async function submit() {
         </div>
 
         <!-- Error Message -->
-        <p v-if="error" class="nuxt-locker-error">
-          {{ error }}
+        <p v-if="errorMessage" class="nuxt-locker-error">
+          {{ errorMessage }}
         </p>
 
         <!-- Submit Button -->
