@@ -54,3 +54,9 @@ coverage
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# SQLite
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
