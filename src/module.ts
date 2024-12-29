@@ -64,6 +64,20 @@ export default defineNuxtModule<NuxtLockerOptions>({
         break;
     }
 
+    // Add server endpoint for validation
+    nuxt.options.nitro.handlers = nuxt.options.nitro.handlers || [];
+    nuxt.options.nitro.handlers.push({
+      route: options.customConfig.verifyEndpoint,
+      method: "post",
+      handler: resolver.resolve("./runtime/server/api/verify"),
+    });
+
+    // Add server middleware
+    nuxt.options.nitro.handlers.push({
+      middleware: true,
+      handler: resolver.resolve("./runtime/server/middleware/verify"),
+    });
+
     // Set runtime config
     nuxt.options.runtimeConfig.nuxtLocker = {
       password: options.password || process.env.NUXT_LOCKER_PASSWORD || "",
