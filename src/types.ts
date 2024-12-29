@@ -46,10 +46,10 @@ export interface NuxtLockerOptions {
   age: number;
 
   /**
-   * Name of a built-in theme CSS (e.g. "default", "dark", etc.).
+   * Name of a built-in CSS theme.
    * @default "dark"
    */
-  theme?: string;
+  theme?: "dark" | "light";
 
   /**
    * Email address that users can contact when they need access
