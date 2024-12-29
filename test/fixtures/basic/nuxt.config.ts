@@ -1,7 +1,10 @@
-import MyModule from "../../../src/module";
+import { defineNuxtConfig } from "nuxt/config";
+import NuxtLockerModule from "../../../src/module";
 
 export default defineNuxtConfig({
-  modules: [
-    MyModule,
-  ],
+  modules: [NuxtLockerModule],
+  nuxtLocker: {
+    password: "password",
+    jwtSecret: "secret",
+  },
 });
