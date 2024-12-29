@@ -50,7 +50,7 @@ export default defineNuxtModule<NuxtLockerOptions>({
       pages.push({
         name: "NuxtLocker",
         path: options.customConfig.loginRoute,
-        file: resolver.resolve("./runtime/pages/NuxtLocker.vue"),
+        file: resolver.resolve("./runtime/pages/Login.vue"),
       });
     });
 
