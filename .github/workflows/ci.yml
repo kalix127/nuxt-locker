@@ -10,42 +10,7 @@ on:
       - main
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-      - run: corepack enable
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Linting
-        run: pnpm lint
-
-  test-types:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-      - run: corepack enable
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Playground prepare
-        run: pnpm dev:prepare
-
-      - name: Type check
-        run: pnpm test:types
-
-  playwright-tests:
+  ci:
     timeout-minutes: 60
     runs-on: ubuntu-latest
 
@@ -55,15 +20,34 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-
+          cache: "pnpm"
       - name: Install dependencies
         run: pnpm install
+
+      # Install playwright's binary under custom directory to cache
+      - name: Set Playwright path
+        run: echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.cache/playwright-bin" >> $GITHUB_ENV
+
+      - name: Cache Playwright's binary
+        uses: actions/cache@v4
+        with:
+          key: ${{ runner.os }}-playwright-bin-v1
+          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
+
+      - name: Install Playwright
+        run: pnpm playwright-core install chromium --with-deps
 
       - name: Playground prepare
         run: pnpm dev:prepare
 
-      - name: Install Playwright Browsers
-        run: pnpm playwright install --with-deps
+      - name: Linting
+        run: pnpm lint
 
       - name: Run Playwright tests
         run: pnpm test
+
+      - name: Type check
+        run: pnpm test:types
+
+      - name: Build
+        run: pnpm prepack
