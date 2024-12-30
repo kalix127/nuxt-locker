@@ -1,41 +1,61 @@
-<!--
-Get your module up and running quickly.
-
-Find and replace all on all files (CMD+SHIFT+F):
-- Name: My Module
-- Package name: my-module
-- Description: My new Nuxt module
--->
-
-# My Module
+# Nuxt Locker
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-My new Nuxt module for doing amazing things.
+**Nuxt Locker** is a lightweight (13.2 kB) module that lets you lock down and protect pages with basic auth. Perfect for demos, staging sites, or keeping web crawlers at bay. Just drop it in, set a password, and you're done - no complex setup required.
+
+> **⚠️ Warning:** This module is **not recommended for production** environments. It lacks advanced security features and should only be used for demo purposes or limited access scenarios.
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
-<!-- - [🏀 Online playground](https://stackblitz.com/github/your-org/my-module?file=playground%2Fapp.vue) -->
-<!-- - [📖 &nbsp;Documentation](https://example.com) -->
+- [📖 &nbsp;Documentation](nuxt-looker.vercel.app)
 
 ## Features
 
-<!-- Highlight some of the features your module provide here -->
-- ⛰ &nbsp;Foo
-- 🚠 &nbsp;Bar
-- 🌲 &nbsp;Baz
+- **Drop-in Solution:** Just install, add a few lines of config, and you're good to go
+- **Simple Password Protection:** Lock down pages with a basic password - nothing fancy but gets the job done
+- **Fully Customizable:** Configure everything from protected routes and cookie names to styling.
 
 ## Quick Setup
 
 Install the module to your Nuxt application with one command:
 
 ```bash
-npx nuxi module add my-module
+npm i nuxt-locker
 ```
 
-That's it! You can now use My Module in your Nuxt app ✨
+### Generate JWT Secret
+
+Generate a secure JWT secret by running this using Node.js:
+
+```bash
+node -e "console.log(require('crypto').randomBytes(64).toString('hex'));"
+```
+
+### Create Environment Variables
+
+Add these variables to your `.env` file:
+
+```env
+NUXT_LOCKER_PASSWORD=your-password
+NUXT_LOCKER_JWT_SECRET=your-generated-jwt-secret
+```
+
+### Add to Nuxt Config
+
+Add `nuxt-locker` to your Nuxt config:
+
+```ts
+export default defineNuxtConfig({
+  modules: [
+    "nuxt-locker",
+  ],
+});
+```
+
+That's it! You can now use **Nuxt Locker** in your Nuxt app 🚀
 
 ## Contribution
 
@@ -44,39 +64,54 @@ That's it! You can now use My Module in your Nuxt app ✨
 
   ```bash
   # Install dependencies
-  npm install
+  pnpm install
 
   # Generate type stubs
-  npm run dev:prepare
+  pnpm dev:prepare
 
   # Develop with the playground
-  npm run dev
+  pnpm dev
 
   # Build the playground
-  npm run dev:build
+  pnpm dev:build
+
+  # Develop with the docs
+  pnpm docs:dev
+
+  # Build the docs
+  pnpm docs:build
 
   # Run ESLint
-  npm run lint
+  pnpm lint
+  pnpm lint:fix
 
   # Run Vitest
-  npm run test
-  npm run test:watch
+  pnpm test
+  pnpm test:watch
 
-  # Release new version
-  npm run release
+  # Build the module
+  pnpm prepack
   ```
-
 </details>
 
+## Credits
+
+- [shadcn-docs-nuxt](https://github.com/ZTL-UwU/shadcn-docs-nuxt) - For providing the template for this documentation
+- [nuxt/module-builder](https://github.com/nuxt/module-builder) - From the official Nuxt team that provided the default template to create a Nuxt module
+
+## License
+
+[MIT](https://github.com/kalix127/nuxt-locker/blob/main/LICENSE)
+
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/my-module/latest.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-version-href]: https://npmjs.com/package/my-module
+[npm-version-src]: https://img.shields.io/npm/v/nuxt-locker/latest.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-version-href]: https://npmjs.com/package/nuxt-locker
 
-[npm-downloads-src]: https://img.shields.io/npm/dm/my-module.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npm.chart.dev/my-module
+[npm-downloads-src]: https://img.shields.io/npm/dm/nuxt-locker.svg?style=flat&colorA=020420&colorB=00DC82
+[npm-downloads-href]: https://npm.chart.dev/nuxt-locker
 
-[license-src]: https://img.shields.io/npm/l/my-module.svg?style=flat&colorA=020420&colorB=00DC82
-[license-href]: https://npmjs.com/package/my-module
+[license-src]: https://img.shields.io/npm/l/nuxt-locker.svg?style=flat&colorA=020420&colorB=00DC82
+[license-href]: https://npmjs.com/package/nuxt-locker
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
