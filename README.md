@@ -10,7 +10,7 @@
 > **⚠️ Warning:** This module is **not recommended for production** environments. It lacks advanced security features and should only be used for demo purposes or limited access scenarios.
 
 - [✨ &nbsp;Release Notes](/CHANGELOG.md)
-- [📖 &nbsp;Documentation](nuxt-looker.vercel.app)
+- [📖 &nbsp;Documentation](https://nuxt-locker.vercel.app/)
 
 ## Features
 
