@@ -7,18 +7,18 @@
 }
 
 .nuxt-locker {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(20, 14.3%, 4.1%);
+  --nuxt-locker-background: hsl(0, 0%, 100%);
+  --nuxt-locker-foreground: hsl(20, 14.3%, 4.1%);
 
-  --primary: hsl(25, 100%, 50%);
-  --primary-foreground: hsl(60, 9.1%, 97.8%);
+  --nuxt-locker-primary: hsl(25, 100%, 50%);
+  --nuxt-locker-primary-foreground: hsl(60, 9.1%, 97.8%);
 
-  --muted: hsl(60, 4.8%, 95.9%);
+  --nuxt-locker-muted: hsl(60, 4.8%, 95.9%);
 
-  --destructive: hsl(0, 84%, 50%);
+  --nuxt-locker-destructive: hsl(0, 84%, 50%);
 
-  --border: hsl(20, 5.9%, 90%);
-  --input: hsl(20, 5.9%, 90%);
+  --nuxt-locker-border: hsl(20, 5.9%, 90%);
+  --nuxt-locker-input: hsl(20, 5.9%, 90%);
 }
 
 .nuxt-locker {
@@ -26,8 +26,8 @@
   place-content: center;
   height: 100svh;
   width: 100svw;
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--nuxt-locker-background);
+  color: var(--nuxt-locker-foreground);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 1rem;
 }
@@ -36,7 +36,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: var(--muted);
+  background-color: var(--nuxt-locker-muted);
   padding: 2rem;
   border-radius: 12px;
   max-width: 380px;
@@ -81,17 +81,17 @@
   width: 100%;
   padding: 0.75rem 0.75rem 0.75rem 2.5rem;
   font-size: 1rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--nuxt-locker-border);
   border-radius: 6px;
-  background-color: var(--input);
+  background-color: var(--nuxt-locker-input);
   transition: border-color 0.2s, box-shadow 0.2s;
-  color: var(--foreground);
+  color: var(--nuxt-locker-foreground);
 }
 
 .nuxt-locker input:focus-visible {
-  border-color: var(--primary);
+  border-color: var(--nuxt-locker-primary);
   outline: none;
-  box-shadow: 0 0 0 2px var(--primary);
+  box-shadow: 0 0 0 2px var(--nuxt-locker-primary);
 }
 
 .nuxt-locker button {
@@ -102,8 +102,8 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  background-color: var(--primary);
-  color: var(--primary-foreground);
+  background-color: var(--nuxt-locker-primary);
+  color: var(--nuxt-locker-primary-foreground);
   transition: background-color 0.2s, box-shadow 0.2s;
   display: flex;
   align-items: center;
@@ -117,17 +117,17 @@
 }
 
 .nuxt-locker button:not(:disabled):hover {
-  background-color: var(--primary);
+  background-color: var(--nuxt-locker-primary);
 }
 
 .nuxt-locker button:not(:disabled):focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--primary);
+  box-shadow: 0 0 0 2px var(--nuxt-locker-primary);
 }
 
 .nuxt-locker-error {
   font-size: 0.90rem;
-  color: var(--destructive);
+  color: var(--nuxt-locker-destructive);
   margin-top: -0.5rem;
   line-height: 1.2;
 }
@@ -149,6 +149,6 @@
 }
 
 .nuxt-locker-info-email a {
-  color: var(--primary);
+  color: var(--nuxt-locker-primary);
   text-decoration: none;
 }
