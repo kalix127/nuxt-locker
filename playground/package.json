@@ -1,5 +1,5 @@
 {
-  "name": "my-module-playground",
+  "name": "nuxt-locker-playground",
   "type": "module",
   "private": true,
   "scripts": {
