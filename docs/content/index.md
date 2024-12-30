@@ -44,7 +44,7 @@ A lightweight module that lets you lock down and protect pages with basic auth. 
   to: /getting-started/configuration
   target: _self
   ---
-  Keep your staging sites and demos safe from web crawlers and archival services. No more unwanted snapshots or indexing.
+  Keep your staging sites and demos safe from web crawlers and archival services. No more unwanted snapshots.
   ::
 
   ::card
