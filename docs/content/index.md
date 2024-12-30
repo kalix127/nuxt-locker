@@ -5,11 +5,6 @@ navigation: false
 
 ::hero
 ---
-announcement:
-  title: 'Release v1.0.0'
-  icon: '🎉'
-  to: https://github.com/kalix127/nuxt-locker/releases/latest
-  target: _blank
 actions:
   - name: Get Started
     to: /getting-started
