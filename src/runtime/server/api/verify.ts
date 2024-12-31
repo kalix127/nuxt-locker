@@ -1,3 +1,4 @@
+import { useRuntimeConfig } from "#imports";
 import { defineEventHandler, readBody, setCookie } from "h3";
 import jwt from "jsonwebtoken";
 import { createSession } from "../sessions";

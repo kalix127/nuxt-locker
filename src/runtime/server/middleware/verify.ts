@@ -10,6 +10,8 @@ export default defineEventHandler(async (event) => {
   const url = getRequestURL(event);
   const token = getCookie(event, cookieName);
 
+  const excludedPaths = [loginRoute, verifyEndpoint, "/nuxt-locker", "/__nuxt_error"];
+
   // If user is already authenticated and tries to access login page, redirect to home
   if (url.pathname === loginRoute && token) {
     try {
@@ -25,20 +27,19 @@ export default defineEventHandler(async (event) => {
 
   if (
     !isProtected
-    || url.pathname === verifyEndpoint
-    || url.pathname === loginRoute
+    || excludedPaths.includes(url.pathname)
   ) {
     return;
   }
 
   if (!token) {
-    return sendRedirect(event, `${loginRoute}?redirect=${url.pathname}`, 302);
+    return sendRedirect(event, `${loginRoute}?redirect=${encodeURIComponent(url.pathname)}`, 302);
   }
 
   try {
     jwt.verify(token, jwtSecret);
   }
   catch {
-    return sendRedirect(event, `${loginRoute}?redirect=${url.pathname}`, 302);
+    return sendRedirect(event, `${loginRoute}?redirect=${encodeURIComponent(url.pathname)}`, 302);
   }
 });
