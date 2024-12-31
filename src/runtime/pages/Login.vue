@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { navigateTo, ref, useRoute, useRuntimeConfig } from "#imports";
+import { navigateTo, ref, useHead, useRoute, useRuntimeConfig } from "#imports";
 
 useHead({
   title: "Protected Page",
