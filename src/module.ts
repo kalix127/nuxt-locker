@@ -92,5 +92,8 @@ export default defineNuxtModule<NuxtLockerOptions>({
       contactEmail: options.contactEmail,
       customConfig: options.customConfig,
     } as Omit<NuxtLockerOptions, "password" | "jwtSecret">;
+
+    nuxt.options.nitro.compressPublicAssets = true;
+    nuxt.options.nitro.minify = true;
   },
 });
