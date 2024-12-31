@@ -8,7 +8,7 @@ let dbInstance: Database<SQLiteDatabase>;
 
 export async function getDb() {
   if (!dbInstance) {
-    const dataDir = path.join(process.cwd(), "data");
+    const dataDir = path.join(process.cwd(), "nuxt-locker-data");
     if (!fs.existsSync(dataDir)) {
       fs.mkdirSync(dataDir, { recursive: true });
     }
