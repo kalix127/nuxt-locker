@@ -4,6 +4,7 @@
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
+![Ci](https://github.com/kalix127/nuxt-locker/actions/workflows/ci.yml/badge.svg)
 
 **Nuxt Locker** is a lightweight module that lets you lock down and protect pages with basic auth. Perfect for demos, staging sites, or keeping web crawlers at bay. Just drop it in, set a password, and you're done - no complex setup required.
 
