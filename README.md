@@ -5,7 +5,7 @@
 [![License][license-src]][license-href]
 [![Nuxt][nuxt-src]][nuxt-href]
 
-**Nuxt Locker** is a lightweight (13.2 kB) module that lets you lock down and protect pages with basic auth. Perfect for demos, staging sites, or keeping web crawlers at bay. Just drop it in, set a password, and you're done - no complex setup required.
+**Nuxt Locker** is a lightweight module that lets you lock down and protect pages with basic auth. Perfect for demos, staging sites, or keeping web crawlers at bay. Just drop it in, set a password, and you're done - no complex setup required.
 
 > **⚠️ Warning:** This module is **not recommended for production** environments. It lacks advanced security features and should only be used for demo purposes or limited access scenarios.
 
