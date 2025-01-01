@@ -1,7 +1,7 @@
 
-## v1.2.0
+## v1.2.1
 
-[compare changes](https://github.com/kalix127/nuxt-locker/compare/v1.1.0...v1.2.1)
+[compare changes](https://github.com/kalix127/nuxt-locker/compare/v1.2.0...v1.2.1)
 
 ### 🏡 Chore
 
@@ -123,4 +123,3 @@
 
 - Gianluca Iavicoli <gianluca.iavicoli04@gmail.com>
 - D5f0cb4 <Gianluca Iavicoli>
-
