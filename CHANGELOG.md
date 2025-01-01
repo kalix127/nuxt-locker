@@ -1,4 +1,47 @@
 
+## v1.2.1
+
+[compare changes](https://github.com/kalix127/nuxt-locker/compare/v1.1.0...v1.2.1)
+
+### 🚀 Enhancements
+
+- **module:** Enable minification and compression for public assets ([7145b65](https://github.com/kalix127/nuxt-locker/commit/7145b65))
+
+### 🩹 Fixes
+
+- **login:** Add missing import ([f242786](https://github.com/kalix127/nuxt-locker/commit/f242786))
+- Add missing import for useRuntimeConfig ([e628d5b](https://github.com/kalix127/nuxt-locker/commit/e628d5b))
+- Add excluded paths for authentication redirection ([d0b1eb8](https://github.com/kalix127/nuxt-locker/commit/d0b1eb8))
+
+### 💅 Refactors
+
+- **database:** Rename 'data' directory path to 'nuxt-locker-data' ([cc7fbcb](https://github.com/kalix127/nuxt-locker/commit/cc7fbcb))
+
+### 📖 Documentation
+
+- **installation:** Add important note about using the `pages/` directory ([36cc3b0](https://github.com/kalix127/nuxt-locker/commit/36cc3b0))
+
+### 🏡 Chore
+
+- **release:** V1.2.0 ([1bc41b3](https://github.com/kalix127/nuxt-locker/commit/1bc41b3))
+- **scripts:** Update release scripts ([7ace745](https://github.com/kalix127/nuxt-locker/commit/7ace745))
+
+### ❤️ Contributors
+
+- Gianluca Iavicoli <gianluca.iavicoli04@gmail.com>
+
+## v1.2.0
+
+[compare changes](https://github.com/kalix127/nuxt-locker/compare/v1.1.0...v1.2.1)
+
+### 🏡 Chore
+
+- **scripts:** Update release scripts ([7ace745](https://github.com/kalix127/nuxt-locker/commit/7ace745))
+
+### ❤️ Contributors
+
+- Gianluca Iavicoli <gianluca.iavicoli04@gmail.com>
+
 ## v1.2.0
 
 [compare changes](https://github.com/kalix127/nuxt-locker/compare/v1.1.0...v1.2.0)
